@@ -91,7 +91,6 @@ const getAllUsers = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { getAllUsers };
 
 //@desc Get tasks assigned to the user with admin names
 //@route GET /api/users/get-tasks

@@ -50,13 +50,13 @@ const getUserTasks = asyncHandler(async (req, res) => {
   }
 });
 
+
 //@desc Update a task for a specific user by task ID
 //@route PUT /api/admin/update-task/:taskId
 //@access private (admin)
 const updateTask = asyncHandler(async (req, res) => {
   try {
     const { taskId } = req.params;
-    // const { newTask } = req.body;
     const { description } = req.body;
 
     const user = await User.findOneAndUpdate(

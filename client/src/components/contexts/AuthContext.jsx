@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
-// import { useHistory } from "react-router-dom";
+
 
 const AuthContext = createContext();
 
@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
   const [accessToken, setAccessToken] = useState(
     localStorage.getItem("accessToken") || null
   );
-  // const history = useHistory();
+
 
   const api = axios.create({
     baseURL: "http://localhost:5001",
@@ -54,8 +54,6 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     setAccessToken(null);
     setUser(null);
-    // localStorage.removeItem("accessToken");
-    // history.push("/signin");
   };
 
   const refreshAccessToken = async () => {};

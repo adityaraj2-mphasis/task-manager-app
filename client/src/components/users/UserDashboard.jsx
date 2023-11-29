@@ -36,7 +36,6 @@ import { TextField } from "@mui/material";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import axios from "axios";
-import FilterListIcon from "@mui/icons-material/FilterList";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
@@ -57,10 +56,7 @@ const UserDashboard = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [userList, setUserList] = useState([]);
   const [selectedUser, setSelectedUser] = useState("");
-  const [sorting, setSorting] = useState({
-    column: null,
-    order: "asc",
-  });
+
   const [orderBy, setOrderBy] = useState(null);
   const [order, setOrder] = useState("asc");
 

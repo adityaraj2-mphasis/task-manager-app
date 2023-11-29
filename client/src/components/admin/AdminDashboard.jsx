@@ -45,8 +45,7 @@ const AdminDashboard = () => {
   const [assignTaskModalOpen, setAssignTaskModalOpen] = useState(false);
   const [assignTask, setAssignTask] = useState("");
   const [assignTaskDescription, setAssignTaskDescription] = useState("");
-  // const [selectedDropdownUser, setSelectedDropdownUser] = useState("");
-  // const taskUpdates = localStorage.getItem("accessToken");
+
 
   const history = useHistory();
   const api = axios.create({
@@ -58,26 +57,25 @@ const AdminDashboard = () => {
   });
 
   useEffect(() => {
-    // let isMounted = true;
+    let isMounted = true;
 
     const fetchData = async () => {
       try {
         const response = await api.get("/api/users/get-all-users");
         console.log("User list response:", response);
 
-        // if (isMounted) {
+        if (isMounted) {
           setUserList(response.data);
-        // }
-      } catch (error) {
+        }      } catch (error) {
         console.error("Error fetching user data:", error);
       }
     };
 
     fetchData();
 
-    // return () => {
-    //   isMounted = false;
-    // };
+    return () => {s
+      isMounted = false;
+    };
   }, [istaskUpdate]);
 
   useEffect(() => {
@@ -99,11 +97,11 @@ const AdminDashboard = () => {
 
     fetchUserTasks();
 
-    // const intervalId = setInterval(fetchUserTasks, 1000);
+    const intervalId = setInterval(fetchUserTasks, 1000);
 
-    // return () => {
-    //   clearInterval(intervalId);
-    // };
+    return () => {
+      clearInterval(intervalId);
+    };
   }, [selectedUser]);
 
   const handleDrawerOpen = () => {
@@ -131,7 +129,7 @@ const AdminDashboard = () => {
   const handleAssignTask = async () => {
     try {
       const response = await api.post("/api/admin/provide-task", {
-        _id: selectedUser._id, // Corrected the field name to match your server-side code
+        _id: selectedUser._id, // Corrected the field name to match  server-side code
         task: assignTask,
         description: assignTaskDescription,
       });
@@ -386,7 +384,6 @@ const AdminDashboard = () => {
             size="small"
             maxRows="5"
             margin="normal"
-            // fullWidth
             value={updateTaskDescription}
             onChange={(e) => setUpdateTaskDescription(e.target.value)}
             sx={{
@@ -438,9 +435,8 @@ const AdminDashboard = () => {
           <Button onClick={handleCloseAssignTaskModal}>Cancel</Button>
           <Button
             onClick={() => {
-              // Call your API to assign the task here using assignTask and assignTaskDescription
+              // Call API to assign the task here using assignTask and assignTaskDescription
               handleAssignTask();
-              // handleCloseAssignTaskModal();
             }}
             color="primary"
           >
@@ -468,7 +464,6 @@ const AdminDashboard = () => {
                 </tr>
               </thead>
               <tbody>
-                {console.log("coll:::::::::::::::::::::",userList.map((el)=>{return el.tasks})?.flat())}
                 {userList &&
                  userList?.map((ele)=>{
                   return ele.tasks

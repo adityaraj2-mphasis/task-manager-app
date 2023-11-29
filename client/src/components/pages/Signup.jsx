@@ -65,11 +65,8 @@ const Signup = () => {
         alignItems: "center",
         justifyContent: "center",
         minHeight: "100vh",
-        // backgroundColor: "#f5f5f5",
         padding: "20px",
         borderRadius: "8px",
-        // boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
-        // marginTop: "50px",
         mx: "auto",
       }}
     >
