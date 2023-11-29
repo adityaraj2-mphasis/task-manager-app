@@ -2,6 +2,7 @@
 
 # mongodb connection
 step 1: create a admin data using postman or similar app<br>
+step 2: use the connection string in .env file to connect to local db.
 
 
 # run the server
