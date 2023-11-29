@@ -14,10 +14,10 @@ router.post("/register", registerUser);
 
 router.post("/login", loginUser);
 
-router.post("/current", validateToken, currentUser);
+// router.post("/current", validateToken, currentUser);
 
 router.get("/get-all-users", getAllUsers);
 
-router.put("/update-task-status/:taskId", updateTaskStatus);
+router.put("/update-task-status/:taskId",validateToken, updateTaskStatus);
 
 module.exports = router;
